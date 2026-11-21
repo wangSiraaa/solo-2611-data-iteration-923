@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basket-service"
+version = "1.0.0"
+description = "Optimal basket quote service and per-unit after-sales ledger"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+basket-service = "basket_service.demo:main"
+
+[tool.setuptools]
+packages = ["basket_service"]

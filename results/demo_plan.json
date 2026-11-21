@@ -1,0 +1,164 @@
+{
+  "note": "The structured operations executed above, replayable with `python -m basket_service run-plan`.",
+  "steps": [
+    {
+      "coupons": [
+        {
+          "D": 150,
+          "coupon_id": "AB",
+          "requires": {
+            "A": 1,
+            "B": 1
+          }
+        }
+      ],
+      "op": "publish_snapshot",
+      "products": [
+        {
+          "price": 100,
+          "sku": "A"
+        },
+        {
+          "price": 100,
+          "sku": "B"
+        },
+        {
+          "price": 100,
+          "sku": "C"
+        }
+      ],
+      "snapshot_id": "case-before"
+    },
+    {
+      "coupons": [
+        {
+          "D": 150,
+          "coupon_id": "AB",
+          "requires": {
+            "A": 1,
+            "B": 1
+          }
+        },
+        {
+          "D": 80,
+          "coupon_id": "A",
+          "requires": {
+            "A": 1
+          }
+        },
+        {
+          "D": 100,
+          "coupon_id": "BC",
+          "requires": {
+            "B": 1,
+            "C": 1
+          }
+        }
+      ],
+      "op": "publish_snapshot",
+      "products": [
+        {
+          "price": 100,
+          "sku": "A"
+        },
+        {
+          "price": 100,
+          "sku": "B"
+        },
+        {
+          "price": 100,
+          "sku": "C"
+        }
+      ],
+      "snapshot_id": "case-added"
+    },
+    {
+      "basket": [
+        {
+          "price": 100,
+          "sku": "A",
+          "unit_id": "a"
+        },
+        {
+          "price": 100,
+          "sku": "B",
+          "unit_id": "b"
+        },
+        {
+          "price": 100,
+          "sku": "C",
+          "unit_id": "c"
+        }
+      ],
+      "coupons": [],
+      "name": "q_before",
+      "op": "quote",
+      "request_id": "case-q-before",
+      "snapshot_id": "case-before"
+    },
+    {
+      "basket": [
+        {
+          "price": 100,
+          "sku": "A",
+          "unit_id": "a"
+        },
+        {
+          "price": 100,
+          "sku": "B",
+          "unit_id": "b"
+        },
+        {
+          "price": 100,
+          "sku": "C",
+          "unit_id": "c"
+        }
+      ],
+      "coupons": [],
+      "name": "q_added",
+      "op": "quote",
+      "request_id": "case-q-added",
+      "snapshot_id": "case-added"
+    },
+    {
+      "name": "s_before",
+      "op": "register_sale",
+      "quote": "$q_before",
+      "sale_id": "S1"
+    },
+    {
+      "name": "s_added",
+      "op": "register_sale",
+      "quote": "$q_added",
+      "sale_id": "S2"
+    },
+    {
+      "grade": {
+        "b": "RESTOCK"
+      },
+      "op": "return",
+      "request_id": "r1",
+      "sale_id": "S1",
+      "unit_ids": [
+        "b"
+      ]
+    },
+    {
+      "grade": {
+        "b": "SCRAP"
+      },
+      "op": "return",
+      "request_id": "ret-added-b",
+      "sale_id": "S2",
+      "unit_ids": [
+        "b"
+      ]
+    },
+    {
+      "expect_error": "SALE_CONFLICT",
+      "op": "register_sale",
+      "quote": "$q_added",
+      "sale_id": "S1"
+    }
+  ]
+}

@@ -1,0 +1,3192 @@
+{
+  "checks": [
+    {
+      "actual": 150,
+      "check": "case.before.total_matches_bruteforce",
+      "expected": 150,
+      "ok": true
+    },
+    {
+      "actual": 120,
+      "check": "case.added.total_matches_bruteforce",
+      "expected": 120,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "old_quote_unchanged_after_new_snapshot",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": 25,
+      "check": "old_sale_refund_uses_old_quote",
+      "expected": 25,
+      "ok": true
+    },
+    {
+      "actual": 50,
+      "check": "new_sale_refund_uses_new_quote",
+      "expected": 50,
+      "ok": true
+    },
+    {
+      "actual": 25,
+      "check": "post_switch_old_sale_refund_follows_old_paid",
+      "expected": 25,
+      "ok": true
+    },
+    {
+      "actual": 160,
+      "check": "greedy_largest_d_is_not_optimal",
+      "expected": 160,
+      "greedy_total": 210,
+      "ok": true
+    },
+    {
+      "actual": {
+        "x": [
+          "a"
+        ],
+        "y": [
+          "b"
+        ],
+        "z": [
+          "c"
+        ]
+      },
+      "check": "tie_break_matches_bruteforce",
+      "expected": {
+        "x": [
+          "a"
+        ],
+        "y": [
+          "b"
+        ],
+        "z": [
+          "c"
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": [
+        {
+          "coupon_id": "third",
+          "discount": 50,
+          "paid": 50,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "a"
+        },
+        {
+          "coupon_id": "third",
+          "discount": 0,
+          "paid": 1,
+          "price": 1,
+          "sku": "A",
+          "unit_id": "low"
+        },
+        {
+          "coupon_id": "third",
+          "discount": 50,
+          "paid": 50,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "m"
+        },
+        {
+          "coupon_id": null,
+          "discount": 0,
+          "paid": 100,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "z"
+        }
+      ],
+      "check": "proportional_allocation_matches_fraction_reference",
+      "expected": [
+        {
+          "coupon_id": "third",
+          "discount": 50,
+          "paid": 50,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "a"
+        },
+        {
+          "coupon_id": "third",
+          "discount": 0,
+          "paid": 1,
+          "price": 1,
+          "sku": "A",
+          "unit_id": "low"
+        },
+        {
+          "coupon_id": "third",
+          "discount": 50,
+          "paid": 50,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "m"
+        },
+        {
+          "coupon_id": null,
+          "discount": 0,
+          "paid": 100,
+          "price": 100,
+          "sku": "A",
+          "unit_id": "z"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "actual": 305,
+      "check": "ten_unit_total_matches_full_enumeration",
+      "expected": 305,
+      "ok": true
+    },
+    {
+      "actual": 76,
+      "check": "ten_unit_return_matches_original_paid",
+      "expected": 76,
+      "ok": true
+    },
+    {
+      "actual": 305,
+      "check": "ten_unit_ledger_audit_per_unit_paid_sums_to_quote",
+      "expected": 305,
+      "ok": true
+    },
+    {
+      "actual": 76,
+      "check": "ten_unit_ledger_audit_refund_sums_to_return",
+      "expected": 76,
+      "ok": true
+    },
+    {
+      "actual": {
+        "cumulative_refund": 76,
+        "inventory": {
+          "RESTOCK": {
+            "A": 1,
+            "B": 2,
+            "F": 1
+          },
+          "SCRAP": {
+            "A": 1,
+            "B": 1,
+            "C": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 16,
+            "refund": 16,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 45,
+            "refund": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "grade": "SCRAP",
+            "original_paid": 10,
+            "refund": 10,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 5,
+            "refund": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "ok": true,
+        "refund_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": false,
+        "request_id": "ret-ten",
+        "sale_id": "S-ten",
+        "sale_total": 305
+      },
+      "check": "retry_replays_first_result",
+      "expected": {
+        "cumulative_refund": 76,
+        "inventory": {
+          "RESTOCK": {
+            "A": 1,
+            "B": 2,
+            "F": 1
+          },
+          "SCRAP": {
+            "A": 1,
+            "B": 1,
+            "C": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 16,
+            "refund": 16,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 45,
+            "refund": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "grade": "SCRAP",
+            "original_paid": 10,
+            "refund": 10,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 5,
+            "refund": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "ok": true,
+        "refund_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": false,
+        "request_id": "ret-ten",
+        "sale_id": "S-ten",
+        "sale_total": 305
+      },
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "overlap_rejects_whole_request_and_keeps_u0_refundable",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "adjustment_does_not_change_refundable",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": "identical",
+      "check": "reopen_preserves_quote_sale_return_inventory",
+      "expected": "identical",
+      "ok": true
+    },
+    {
+      "actual": 50,
+      "check": "ledger_consumes_complete_external_quote",
+      "expected": 50,
+      "ok": true
+    },
+    {
+      "actual": {
+        "failures": [
+          "UNIT_ALREADY_RETURNED"
+        ],
+        "inventory_B_restock": 3,
+        "inventory_B_restock_delta": 1,
+        "remaining": [
+          "a",
+          "c"
+        ],
+        "successes": [
+          {
+            "refund_total": 25,
+            "request_id": "race-0"
+          }
+        ]
+      },
+      "check": "concurrent_overlap_one_success_one_rejection_no_double_stock",
+      "expected": {
+        "rejections": [
+          "UNIT_ALREADY_RETURNED"
+        ],
+        "restock_B_delta": 1,
+        "successes": 1
+      },
+      "ok": true
+    }
+  ],
+  "database": "/workspace/data/demo.db",
+  "plan": {
+    "note": "The structured operations executed above, replayable with `python -m basket_service run-plan`.",
+    "steps": [
+      {
+        "coupons": [
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          }
+        ],
+        "op": "publish_snapshot",
+        "products": [
+          {
+            "price": 100,
+            "sku": "A"
+          },
+          {
+            "price": 100,
+            "sku": "B"
+          },
+          {
+            "price": 100,
+            "sku": "C"
+          }
+        ],
+        "snapshot_id": "case-before"
+      },
+      {
+        "coupons": [
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "D": 80,
+            "coupon_id": "A",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 100,
+            "coupon_id": "BC",
+            "requires": {
+              "B": 1,
+              "C": 1
+            }
+          }
+        ],
+        "op": "publish_snapshot",
+        "products": [
+          {
+            "price": 100,
+            "sku": "A"
+          },
+          {
+            "price": 100,
+            "sku": "B"
+          },
+          {
+            "price": 100,
+            "sku": "C"
+          }
+        ],
+        "snapshot_id": "case-added"
+      },
+      {
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupons": [],
+        "name": "q_before",
+        "op": "quote",
+        "request_id": "case-q-before",
+        "snapshot_id": "case-before"
+      },
+      {
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupons": [],
+        "name": "q_added",
+        "op": "quote",
+        "request_id": "case-q-added",
+        "snapshot_id": "case-added"
+      },
+      {
+        "name": "s_before",
+        "op": "register_sale",
+        "quote": "$q_before",
+        "sale_id": "S1"
+      },
+      {
+        "name": "s_added",
+        "op": "register_sale",
+        "quote": "$q_added",
+        "sale_id": "S2"
+      },
+      {
+        "grade": {
+          "b": "RESTOCK"
+        },
+        "op": "return",
+        "request_id": "r1",
+        "sale_id": "S1",
+        "unit_ids": [
+          "b"
+        ]
+      },
+      {
+        "grade": {
+          "b": "SCRAP"
+        },
+        "op": "return",
+        "request_id": "ret-added-b",
+        "sale_id": "S2",
+        "unit_ids": [
+          "b"
+        ]
+      },
+      {
+        "expect_error": "SALE_CONFLICT",
+        "op": "register_sale",
+        "quote": "$q_added",
+        "sale_id": "S1"
+      }
+    ]
+  },
+  "scenarios": {
+    "adjustments": {
+      "restock": {
+        "bucket": "RESTOCK",
+        "event_id": "adj-A-1",
+        "inventory": {
+          "RESTOCK": {
+            "A": 5
+          },
+          "SCRAP": {
+            "A": 1
+          }
+        },
+        "ok": true,
+        "quantity": 4,
+        "repeated": false,
+        "sku": "A"
+      },
+      "scrap": {
+        "bucket": "SCRAP",
+        "event_id": "adj-B-1",
+        "inventory": {
+          "RESTOCK": {
+            "B": 2
+          },
+          "SCRAP": {
+            "B": 3
+          }
+        },
+        "ok": true,
+        "quantity": 2,
+        "repeated": false,
+        "sku": "B"
+      }
+    },
+    "after_reopen": {
+      "audit_inventory": {
+        "A": {
+          "RESTOCK": 5,
+          "SCRAP": 1
+        },
+        "B": {
+          "RESTOCK": 2,
+          "SCRAP": 3
+        },
+        "C": {
+          "RESTOCK": 0,
+          "SCRAP": 1
+        },
+        "F": {
+          "RESTOCK": 1,
+          "SCRAP": 0
+        }
+      },
+      "audit_sales": [
+        {
+          "quote_id": "ten-quote",
+          "refundable_before_returns": 305,
+          "refunded_from_units": 76,
+          "remaining_refundable": [
+            "u0",
+            "u2",
+            "u4",
+            "u6",
+            "u7",
+            "u8"
+          ],
+          "returned_units": [
+            "u1",
+            "u3",
+            "u5",
+            "u9"
+          ],
+          "sale_id": "S-ten",
+          "snapshot_id": "snap-27f94c66610f6eab",
+          "sum_paid": 305,
+          "total": 305
+        },
+        {
+          "quote_id": "case-q-before",
+          "refundable_before_returns": 150,
+          "refunded_from_units": 50,
+          "remaining_refundable": [
+            "c"
+          ],
+          "returned_units": [
+            "a",
+            "b"
+          ],
+          "sale_id": "S1",
+          "snapshot_id": "case-before",
+          "sum_paid": 150,
+          "total": 150
+        },
+        {
+          "quote_id": "case-q-added",
+          "refundable_before_returns": 120,
+          "refunded_from_units": 50,
+          "remaining_refundable": [
+            "a",
+            "c"
+          ],
+          "returned_units": [
+            "b"
+          ],
+          "sale_id": "S2",
+          "snapshot_id": "case-added",
+          "sum_paid": 120,
+          "total": 120
+        }
+      ],
+      "get_quote_case": {
+        "allocation": [
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 100,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "AB": [
+            "a",
+            "b"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupon_ids": [
+          "AB"
+        ],
+        "coupons": [
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          }
+        ],
+        "original_total": 300,
+        "request_id": "case-q-before",
+        "snapshot_id": "case-before",
+        "total": 150,
+        "total_discount": 150
+      },
+      "get_return_ten": {
+        "cumulative_refund": 76,
+        "inventory": {
+          "RESTOCK": {
+            "A": 1,
+            "B": 2,
+            "F": 1
+          },
+          "SCRAP": {
+            "A": 1,
+            "B": 1,
+            "C": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 16,
+            "refund": 16,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 45,
+            "refund": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "grade": "SCRAP",
+            "original_paid": 10,
+            "refund": 10,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 5,
+            "refund": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "ok": true,
+        "refund_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": true,
+        "request_id": "ret-ten",
+        "sale_id": "S-ten",
+        "sale_total": 305
+      },
+      "get_sale_ten": {
+        "ok": true,
+        "quote_id": "ten-quote",
+        "quote_sig": "8e4abf2259d193ebdb59fcf9209b6e31b65dbdace0a6578eaf71088ea012175f",
+        "refunded_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": false,
+        "sale_id": "S-ten",
+        "snapshot_id": "snap-27f94c66610f6eab",
+        "total": 305,
+        "units": [
+          {
+            "coupon_id": "c3",
+            "discount": 46,
+            "grade": null,
+            "paid": 54,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "coupon_id": "c3",
+            "discount": 14,
+            "grade": "RESTOCK",
+            "paid": 16,
+            "price": 30,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 22,
+            "grade": null,
+            "paid": 48,
+            "price": 70,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": "RESTOCK",
+            "paid": 45,
+            "price": 45,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 28,
+            "grade": null,
+            "paid": 62,
+            "price": 90,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 10,
+            "grade": "SCRAP",
+            "paid": 10,
+            "price": 20,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 31,
+            "grade": null,
+            "paid": 29,
+            "price": 60,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 10,
+            "price": 10,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 29,
+            "grade": null,
+            "paid": 26,
+            "price": 55,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": "RESTOCK",
+            "paid": 5,
+            "price": 5,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ]
+      },
+      "inventory": {
+        "RESTOCK": {
+          "A": 5,
+          "B": 2,
+          "F": 1
+        },
+        "SCRAP": {
+          "A": 1,
+          "B": 3,
+          "C": 1
+        }
+      }
+    },
+    "before_reopen": {
+      "audit_inventory": {
+        "A": {
+          "RESTOCK": 5,
+          "SCRAP": 1
+        },
+        "B": {
+          "RESTOCK": 2,
+          "SCRAP": 3
+        },
+        "C": {
+          "RESTOCK": 0,
+          "SCRAP": 1
+        },
+        "F": {
+          "RESTOCK": 1,
+          "SCRAP": 0
+        }
+      },
+      "audit_sales": [
+        {
+          "quote_id": "ten-quote",
+          "refundable_before_returns": 305,
+          "refunded_from_units": 76,
+          "remaining_refundable": [
+            "u0",
+            "u2",
+            "u4",
+            "u6",
+            "u7",
+            "u8"
+          ],
+          "returned_units": [
+            "u1",
+            "u3",
+            "u5",
+            "u9"
+          ],
+          "sale_id": "S-ten",
+          "snapshot_id": "snap-27f94c66610f6eab",
+          "sum_paid": 305,
+          "total": 305
+        },
+        {
+          "quote_id": "case-q-before",
+          "refundable_before_returns": 150,
+          "refunded_from_units": 50,
+          "remaining_refundable": [
+            "c"
+          ],
+          "returned_units": [
+            "a",
+            "b"
+          ],
+          "sale_id": "S1",
+          "snapshot_id": "case-before",
+          "sum_paid": 150,
+          "total": 150
+        },
+        {
+          "quote_id": "case-q-added",
+          "refundable_before_returns": 120,
+          "refunded_from_units": 50,
+          "remaining_refundable": [
+            "a",
+            "c"
+          ],
+          "returned_units": [
+            "b"
+          ],
+          "sale_id": "S2",
+          "snapshot_id": "case-added",
+          "sum_paid": 120,
+          "total": 120
+        }
+      ],
+      "inventory": {
+        "RESTOCK": {
+          "A": 5,
+          "B": 2,
+          "F": 1
+        },
+        "SCRAP": {
+          "A": 1,
+          "B": 3,
+          "C": 1
+        }
+      },
+      "sale_ten": {
+        "ok": true,
+        "quote_id": "ten-quote",
+        "quote_sig": "8e4abf2259d193ebdb59fcf9209b6e31b65dbdace0a6578eaf71088ea012175f",
+        "refunded_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": false,
+        "sale_id": "S-ten",
+        "snapshot_id": "snap-27f94c66610f6eab",
+        "total": 305,
+        "units": [
+          {
+            "coupon_id": "c3",
+            "discount": 46,
+            "grade": null,
+            "paid": 54,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "coupon_id": "c3",
+            "discount": 14,
+            "grade": "RESTOCK",
+            "paid": 16,
+            "price": 30,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 22,
+            "grade": null,
+            "paid": 48,
+            "price": 70,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": "RESTOCK",
+            "paid": 45,
+            "price": 45,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 28,
+            "grade": null,
+            "paid": 62,
+            "price": 90,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 10,
+            "grade": "SCRAP",
+            "paid": 10,
+            "price": 20,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 31,
+            "grade": null,
+            "paid": 29,
+            "price": 60,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 10,
+            "price": 10,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 29,
+            "grade": null,
+            "paid": 26,
+            "price": 55,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": "RESTOCK",
+            "paid": 5,
+            "price": 5,
+            "return_request_id": "ret-ten",
+            "returned": 1,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ]
+      }
+    },
+    "bound_quote_refunds": {
+      "case-return-request": {
+        "cumulative_refund": 25,
+        "inventory": {
+          "RESTOCK": {
+            "B": 1
+          },
+          "SCRAP": {}
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 25,
+            "refund": 25,
+            "sku": "B",
+            "unit_id": "b"
+          }
+        ],
+        "ok": true,
+        "refund_total": 25,
+        "remaining_refundable": [
+          "a",
+          "c"
+        ],
+        "repeated": false,
+        "request_id": "r1",
+        "sale_id": "S1",
+        "sale_total": 150
+      },
+      "ret-added-b": {
+        "cumulative_refund": 50,
+        "inventory": {
+          "RESTOCK": {
+            "B": 1
+          },
+          "SCRAP": {
+            "B": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "SCRAP",
+            "original_paid": 50,
+            "refund": 50,
+            "sku": "B",
+            "unit_id": "b"
+          }
+        ],
+        "ok": true,
+        "refund_total": 50,
+        "remaining_refundable": [
+          "a",
+          "c"
+        ],
+        "repeated": false,
+        "request_id": "ret-added-b",
+        "sale_id": "S2",
+        "sale_total": 120
+      }
+    },
+    "case_material": {
+      "independent_added": {
+        "allocation": [
+          {
+            "coupon_id": "A",
+            "discount": 80,
+            "paid": 20,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "A": [
+            "a"
+          ],
+          "BC": [
+            "b",
+            "c"
+          ]
+        },
+        "total": 120
+      },
+      "independent_before": {
+        "allocation": [
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 100,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "AB": [
+            "a",
+            "b"
+          ]
+        },
+        "total": 150
+      },
+      "quote_added": {
+        "allocation": [
+          {
+            "coupon_id": "A",
+            "discount": 80,
+            "paid": 20,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "A": [
+            "a"
+          ],
+          "BC": [
+            "b",
+            "c"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupon_ids": [
+          "A",
+          "BC"
+        ],
+        "coupons": [
+          {
+            "D": 80,
+            "coupon_id": "A",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "D": 100,
+            "coupon_id": "BC",
+            "requires": {
+              "B": 1,
+              "C": 1
+            }
+          }
+        ],
+        "original_total": 300,
+        "request_id": "case-q-added",
+        "snapshot_id": "case-added",
+        "total": 120,
+        "total_discount": 180
+      },
+      "quote_before": {
+        "allocation": [
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "paid": 25,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 100,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "AB": [
+            "a",
+            "b"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupon_ids": [
+          "AB"
+        ],
+        "coupons": [
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          }
+        ],
+        "original_total": 300,
+        "request_id": "case-q-before",
+        "snapshot_id": "case-before",
+        "total": 150,
+        "total_discount": 150
+      },
+      "snapshots": {
+        "added": "case-added",
+        "before": "case-before"
+      }
+    },
+    "concurrent_returns": {
+      "failures": [
+        "UNIT_ALREADY_RETURNED"
+      ],
+      "inventory_B_restock": 3,
+      "inventory_B_restock_delta": 1,
+      "remaining": [
+        "a",
+        "c"
+      ],
+      "successes": [
+        {
+          "refund_total": 25,
+          "request_id": "race-0"
+        }
+      ]
+    },
+    "contention": {
+      "independent": [
+        80,
+        {
+          "AB1": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": "AB1",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB1",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          }
+        ],
+        "assignments": {
+          "AB1": [
+            "a",
+            "b"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          }
+        ],
+        "coupon_ids": [
+          "AB1"
+        ],
+        "coupons": [
+          {
+            "D": 120,
+            "coupon_id": "AB1",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "D": 110,
+            "coupon_id": "AB2",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          }
+        ],
+        "original_total": 200,
+        "request_id": "contention-quote",
+        "snapshot_id": "snap-15dae08772c22168",
+        "total": 80,
+        "total_discount": 120
+      }
+    },
+    "greedy_trap": {
+      "basket": [
+        {
+          "price": 100,
+          "sku": "A",
+          "unit_id": "a"
+        },
+        {
+          "price": 100,
+          "sku": "B",
+          "unit_id": "b"
+        },
+        {
+          "price": 100,
+          "sku": "C",
+          "unit_id": "c"
+        },
+        {
+          "price": 100,
+          "sku": "D",
+          "unit_id": "d"
+        }
+      ],
+      "coupons": [
+        {
+          "D": 190,
+          "coupon_id": "COMBINED",
+          "requires": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 1
+          }
+        },
+        {
+          "D": 120,
+          "coupon_id": "AB",
+          "requires": {
+            "A": 1,
+            "B": 1
+          }
+        },
+        {
+          "D": 120,
+          "coupon_id": "CD",
+          "requires": {
+            "C": 1,
+            "D": 1
+          }
+        }
+      ],
+      "independent": {
+        "allocation": [
+          {
+            "coupon_id": "AB",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "CD",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          },
+          {
+            "coupon_id": "CD",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "D",
+            "unit_id": "d"
+          }
+        ],
+        "assignments": {
+          "AB": [
+            "a",
+            "b"
+          ],
+          "CD": [
+            "c",
+            "d"
+          ]
+        },
+        "total": 160
+      },
+      "largest_D_first_total": 210,
+      "optimal_quote": {
+        "allocation": [
+          {
+            "coupon_id": "AB",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "CD",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          },
+          {
+            "coupon_id": "CD",
+            "discount": 60,
+            "paid": 40,
+            "price": 100,
+            "sku": "D",
+            "unit_id": "d"
+          }
+        ],
+        "assignments": {
+          "AB": [
+            "a",
+            "b"
+          ],
+          "CD": [
+            "c",
+            "d"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          },
+          {
+            "price": 100,
+            "sku": "D",
+            "unit_id": "d"
+          }
+        ],
+        "coupon_ids": [
+          "AB",
+          "CD"
+        ],
+        "coupons": [
+          {
+            "D": 120,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "D": 120,
+            "coupon_id": "CD",
+            "requires": {
+              "C": 1,
+              "D": 1
+            }
+          },
+          {
+            "D": 190,
+            "coupon_id": "COMBINED",
+            "requires": {
+              "A": 1,
+              "B": 1,
+              "C": 1,
+              "D": 1
+            }
+          }
+        ],
+        "original_total": 400,
+        "request_id": "greedy-quote",
+        "snapshot_id": "snap-0cb3297303ca91b0",
+        "total": 160,
+        "total_discount": 240
+      }
+    },
+    "independent_quote_consumer": {
+      "quote_came_from": "case-q-added (validated payload; ledger never re-optimised)",
+      "return": {
+        "cumulative_refund": 50,
+        "inventory": {
+          "RESTOCK": {
+            "C": 1
+          },
+          "SCRAP": {}
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 50,
+            "refund": 50,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "ok": true,
+        "refund_total": 50,
+        "remaining_refundable": [
+          "a",
+          "b"
+        ],
+        "repeated": false,
+        "request_id": "ret-independent",
+        "sale_id": "S-independent",
+        "sale_total": 120
+      },
+      "sale": {
+        "ok": true,
+        "quote_id": "case-q-added",
+        "quote_sig": "5d1f98073180248b8a70d0a72ad571cb9fb8262310466b92274ffbffc84de24f",
+        "refunded_total": 0,
+        "remaining_refundable": [
+          "a",
+          "b",
+          "c"
+        ],
+        "repeated": false,
+        "sale_id": "S-independent",
+        "snapshot_id": "case-added",
+        "total": 120,
+        "units": [
+          {
+            "coupon_id": "A",
+            "discount": 80,
+            "grade": null,
+            "paid": 20,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "grade": null,
+            "paid": 50,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "grade": null,
+            "paid": 50,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ]
+      }
+    },
+    "lost_response_retry": {
+      "cumulative_refund": 76,
+      "inventory": {
+        "RESTOCK": {
+          "A": 1,
+          "B": 2,
+          "F": 1
+        },
+        "SCRAP": {
+          "A": 1,
+          "B": 1,
+          "C": 1
+        }
+      },
+      "items": [
+        {
+          "grade": "RESTOCK",
+          "original_paid": 16,
+          "refund": 16,
+          "sku": "A",
+          "unit_id": "u1"
+        },
+        {
+          "grade": "RESTOCK",
+          "original_paid": 45,
+          "refund": 45,
+          "sku": "B",
+          "unit_id": "u3"
+        },
+        {
+          "grade": "SCRAP",
+          "original_paid": 10,
+          "refund": 10,
+          "sku": "C",
+          "unit_id": "u5"
+        },
+        {
+          "grade": "RESTOCK",
+          "original_paid": 5,
+          "refund": 5,
+          "sku": "F",
+          "unit_id": "u9"
+        }
+      ],
+      "ok": true,
+      "refund_total": 76,
+      "remaining_refundable": [
+        "u0",
+        "u2",
+        "u4",
+        "u6",
+        "u7",
+        "u8"
+      ],
+      "repeated": false,
+      "request_id": "ret-ten",
+      "sale_id": "S-ten",
+      "sale_total": 305
+    },
+    "overlap_rejected": {
+      "error": "UNIT_ALREADY_RETURNED",
+      "rejected": true
+    },
+    "promotion_switch": {
+      "old_sale_refund_a_after_switch": {
+        "cumulative_refund": 50,
+        "inventory": {
+          "RESTOCK": {},
+          "SCRAP": {
+            "A": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "SCRAP",
+            "original_paid": 25,
+            "refund": 25,
+            "sku": "A",
+            "unit_id": "a"
+          }
+        ],
+        "ok": true,
+        "refund_total": 25,
+        "remaining_refundable": [
+          "c"
+        ],
+        "repeated": false,
+        "request_id": "ret-before-a",
+        "sale_id": "S1",
+        "sale_total": 150
+      },
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": "ABC",
+            "discount": 67,
+            "paid": 33,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "ABC",
+            "discount": 67,
+            "paid": 33,
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "ABC",
+            "discount": 66,
+            "paid": 34,
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "ABC": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ],
+        "coupon_ids": [
+          "ABC"
+        ],
+        "coupons": [
+          {
+            "D": 80,
+            "coupon_id": "A",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 150,
+            "coupon_id": "AB",
+            "requires": {
+              "A": 1,
+              "B": 1
+            }
+          },
+          {
+            "D": 200,
+            "coupon_id": "ABC",
+            "requires": {
+              "A": 1,
+              "B": 1,
+              "C": 1
+            }
+          },
+          {
+            "D": 100,
+            "coupon_id": "BC",
+            "requires": {
+              "B": 1,
+              "C": 1
+            }
+          }
+        ],
+        "original_total": 300,
+        "request_id": "case-q-third",
+        "snapshot_id": "case-third",
+        "total": 100,
+        "total_discount": 200
+      },
+      "snapshot": "case-third"
+    },
+    "proportional_remainder": {
+      "independent": [
+        201,
+        {
+          "third": [
+            "a",
+            "low",
+            "m"
+          ]
+        },
+        [
+          {
+            "coupon_id": "third",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "third",
+            "discount": 0,
+            "paid": 1,
+            "price": 1,
+            "sku": "A",
+            "unit_id": "low"
+          },
+          {
+            "coupon_id": "third",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "m"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 100,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "z"
+          }
+        ]
+      ],
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": "third",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "third",
+            "discount": 0,
+            "paid": 1,
+            "price": 1,
+            "sku": "A",
+            "unit_id": "low"
+          },
+          {
+            "coupon_id": "third",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "m"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 100,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "z"
+          }
+        ],
+        "assignments": {
+          "third": [
+            "a",
+            "low",
+            "m"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 1,
+            "sku": "A",
+            "unit_id": "low"
+          },
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "m"
+          },
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "z"
+          }
+        ],
+        "coupon_ids": [
+          "third"
+        ],
+        "coupons": [
+          {
+            "D": 100,
+            "coupon_id": "third",
+            "requires": {
+              "A": 3
+            }
+          }
+        ],
+        "original_total": 301,
+        "request_id": "remainder-quote",
+        "snapshot_id": "snap-e707a5e1caf036f1",
+        "total": 201,
+        "total_discount": 100
+      }
+    },
+    "sale_conflict": {
+      "error": "SALE_CONFLICT",
+      "rejected": true
+    },
+    "same_sku_different_prices": {
+      "independent": [
+        140,
+        {
+          "big": [
+            "dear"
+          ],
+          "small1": [
+            "mid"
+          ]
+        }
+      ],
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 30,
+            "price": 30,
+            "sku": "A",
+            "unit_id": "cheap"
+          },
+          {
+            "coupon_id": "big",
+            "discount": 250,
+            "paid": 50,
+            "price": 300,
+            "sku": "A",
+            "unit_id": "dear"
+          },
+          {
+            "coupon_id": "small1",
+            "discount": 60,
+            "paid": 60,
+            "price": 120,
+            "sku": "A",
+            "unit_id": "mid"
+          }
+        ],
+        "assignments": {
+          "big": [
+            "dear"
+          ],
+          "small1": [
+            "mid"
+          ]
+        },
+        "basket": [
+          {
+            "price": 30,
+            "sku": "A",
+            "unit_id": "cheap"
+          },
+          {
+            "price": 300,
+            "sku": "A",
+            "unit_id": "dear"
+          },
+          {
+            "price": 120,
+            "sku": "A",
+            "unit_id": "mid"
+          }
+        ],
+        "coupon_ids": [
+          "big",
+          "small1"
+        ],
+        "coupons": [
+          {
+            "D": 250,
+            "coupon_id": "big",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 60,
+            "coupon_id": "small1",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 50,
+            "coupon_id": "small2",
+            "requires": {
+              "A": 1
+            }
+          }
+        ],
+        "original_total": 450,
+        "request_id": "price-quote",
+        "snapshot_id": "snap-6f6f1288093f10ed",
+        "total": 140,
+        "total_discount": 310
+      }
+    },
+    "ten_unit": {
+      "basket": [
+        {
+          "price": 100,
+          "sku": "A",
+          "unit_id": "u0"
+        },
+        {
+          "price": 30,
+          "sku": "A",
+          "unit_id": "u1"
+        },
+        {
+          "price": 70,
+          "sku": "B",
+          "unit_id": "u2"
+        },
+        {
+          "price": 45,
+          "sku": "B",
+          "unit_id": "u3"
+        },
+        {
+          "price": 90,
+          "sku": "C",
+          "unit_id": "u4"
+        },
+        {
+          "price": 20,
+          "sku": "C",
+          "unit_id": "u5"
+        },
+        {
+          "price": 60,
+          "sku": "D",
+          "unit_id": "u6"
+        },
+        {
+          "price": 10,
+          "sku": "D",
+          "unit_id": "u7"
+        },
+        {
+          "price": 55,
+          "sku": "E",
+          "unit_id": "u8"
+        },
+        {
+          "price": 5,
+          "sku": "F",
+          "unit_id": "u9"
+        }
+      ],
+      "coupons": [
+        {
+          "D": 40,
+          "coupon_id": "c0",
+          "requires": {
+            "A": 1
+          }
+        },
+        {
+          "D": 50,
+          "coupon_id": "c1",
+          "requires": {
+            "B": 1,
+            "C": 1
+          }
+        },
+        {
+          "D": 35,
+          "coupon_id": "c2",
+          "requires": {
+            "D": 2
+          }
+        },
+        {
+          "D": 60,
+          "coupon_id": "c3",
+          "requires": {
+            "A": 2
+          }
+        },
+        {
+          "D": 70,
+          "coupon_id": "c4",
+          "requires": {
+            "C": 1,
+            "D": 1,
+            "E": 1
+          }
+        },
+        {
+          "D": 25,
+          "coupon_id": "c5",
+          "requires": {
+            "F": 1
+          }
+        },
+        {
+          "D": 45,
+          "coupon_id": "c6",
+          "requires": {
+            "B": 2
+          }
+        },
+        {
+          "D": 30,
+          "coupon_id": "c7",
+          "requires": {
+            "E": 1,
+            "F": 1
+          }
+        }
+      ],
+      "independent": {
+        "allocation": [
+          {
+            "coupon_id": "c3",
+            "discount": 46,
+            "paid": 54,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "coupon_id": "c3",
+            "discount": 14,
+            "paid": 16,
+            "price": 30,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 22,
+            "paid": 48,
+            "price": 70,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 45,
+            "price": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 28,
+            "paid": 62,
+            "price": 90,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 10,
+            "paid": 10,
+            "price": 20,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 31,
+            "paid": 29,
+            "price": 60,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 10,
+            "price": 10,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 29,
+            "paid": 26,
+            "price": 55,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 5,
+            "price": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "assignments": {
+          "c1": [
+            "u2",
+            "u4"
+          ],
+          "c3": [
+            "u0",
+            "u1"
+          ],
+          "c4": [
+            "u5",
+            "u6",
+            "u8"
+          ]
+        },
+        "total": 305
+      },
+      "independent_ledger_audit": {
+        "inventory_from_raw_events": [
+          {
+            "bucket": "RESTOCK",
+            "qty": 1,
+            "sku": "A"
+          },
+          {
+            "bucket": "SCRAP",
+            "qty": 1,
+            "sku": "A"
+          },
+          {
+            "bucket": "RESTOCK",
+            "qty": 2,
+            "sku": "B"
+          },
+          {
+            "bucket": "SCRAP",
+            "qty": 1,
+            "sku": "B"
+          },
+          {
+            "bucket": "SCRAP",
+            "qty": 1,
+            "sku": "C"
+          },
+          {
+            "bucket": "RESTOCK",
+            "qty": 1,
+            "sku": "F"
+          }
+        ],
+        "per_unit_paid_sum": 305,
+        "remaining": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "return_items": [
+          {
+            "grade": "RESTOCK",
+            "refund": 16,
+            "unit_id": "u1"
+          },
+          {
+            "grade": "RESTOCK",
+            "refund": 45,
+            "unit_id": "u3"
+          },
+          {
+            "grade": "SCRAP",
+            "refund": 10,
+            "unit_id": "u5"
+          },
+          {
+            "grade": "RESTOCK",
+            "refund": 5,
+            "unit_id": "u9"
+          }
+        ],
+        "returned_sum": 76,
+        "sale_units": [
+          {
+            "grade": null,
+            "paid": 54,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "grade": "RESTOCK",
+            "paid": 16,
+            "returned": 1,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "grade": null,
+            "paid": 48,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "grade": "RESTOCK",
+            "paid": 45,
+            "returned": 1,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "grade": null,
+            "paid": 62,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "grade": "SCRAP",
+            "paid": 10,
+            "returned": 1,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "grade": null,
+            "paid": 29,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "grade": null,
+            "paid": 10,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "grade": null,
+            "paid": 26,
+            "returned": 0,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "grade": "RESTOCK",
+            "paid": 5,
+            "returned": 1,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ]
+      },
+      "independent_refund": {
+        "per_unit": {
+          "u1": 16,
+          "u3": 45,
+          "u5": 10,
+          "u9": 5
+        },
+        "total": 76
+      },
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": "c3",
+            "discount": 46,
+            "paid": 54,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "coupon_id": "c3",
+            "discount": 14,
+            "paid": 16,
+            "price": 30,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 22,
+            "paid": 48,
+            "price": 70,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 45,
+            "price": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 28,
+            "paid": 62,
+            "price": 90,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 10,
+            "paid": 10,
+            "price": 20,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 31,
+            "paid": 29,
+            "price": 60,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 10,
+            "price": 10,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 29,
+            "paid": 26,
+            "price": 55,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "paid": 5,
+            "price": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "assignments": {
+          "c1": [
+            "u2",
+            "u4"
+          ],
+          "c3": [
+            "u0",
+            "u1"
+          ],
+          "c4": [
+            "u5",
+            "u6",
+            "u8"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "price": 30,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "price": 70,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "price": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "price": 90,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "price": 20,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "price": 60,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "price": 10,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "price": 55,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "price": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "coupon_ids": [
+          "c1",
+          "c3",
+          "c4"
+        ],
+        "coupons": [
+          {
+            "D": 40,
+            "coupon_id": "c0",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 50,
+            "coupon_id": "c1",
+            "requires": {
+              "B": 1,
+              "C": 1
+            }
+          },
+          {
+            "D": 35,
+            "coupon_id": "c2",
+            "requires": {
+              "D": 2
+            }
+          },
+          {
+            "D": 60,
+            "coupon_id": "c3",
+            "requires": {
+              "A": 2
+            }
+          },
+          {
+            "D": 70,
+            "coupon_id": "c4",
+            "requires": {
+              "C": 1,
+              "D": 1,
+              "E": 1
+            }
+          },
+          {
+            "D": 25,
+            "coupon_id": "c5",
+            "requires": {
+              "F": 1
+            }
+          },
+          {
+            "D": 45,
+            "coupon_id": "c6",
+            "requires": {
+              "B": 2
+            }
+          },
+          {
+            "D": 30,
+            "coupon_id": "c7",
+            "requires": {
+              "E": 1,
+              "F": 1
+            }
+          }
+        ],
+        "original_total": 485,
+        "request_id": "ten-quote",
+        "snapshot_id": "snap-27f94c66610f6eab",
+        "total": 305,
+        "total_discount": 180
+      },
+      "return": {
+        "cumulative_refund": 76,
+        "inventory": {
+          "RESTOCK": {
+            "A": 1,
+            "B": 2,
+            "F": 1
+          },
+          "SCRAP": {
+            "A": 1,
+            "B": 1,
+            "C": 1
+          }
+        },
+        "items": [
+          {
+            "grade": "RESTOCK",
+            "original_paid": 16,
+            "refund": 16,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 45,
+            "refund": 45,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "grade": "SCRAP",
+            "original_paid": 10,
+            "refund": 10,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "grade": "RESTOCK",
+            "original_paid": 5,
+            "refund": 5,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ],
+        "ok": true,
+        "refund_total": 76,
+        "remaining_refundable": [
+          "u0",
+          "u2",
+          "u4",
+          "u6",
+          "u7",
+          "u8"
+        ],
+        "repeated": false,
+        "request_id": "ret-ten",
+        "sale_id": "S-ten",
+        "sale_total": 305
+      },
+      "sale": {
+        "ok": true,
+        "quote_id": "ten-quote",
+        "quote_sig": "8e4abf2259d193ebdb59fcf9209b6e31b65dbdace0a6578eaf71088ea012175f",
+        "refunded_total": 0,
+        "remaining_refundable": [
+          "u0",
+          "u1",
+          "u2",
+          "u3",
+          "u4",
+          "u5",
+          "u6",
+          "u7",
+          "u8",
+          "u9"
+        ],
+        "repeated": false,
+        "sale_id": "S-ten",
+        "snapshot_id": "snap-27f94c66610f6eab",
+        "total": 305,
+        "units": [
+          {
+            "coupon_id": "c3",
+            "discount": 46,
+            "grade": null,
+            "paid": 54,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "u0"
+          },
+          {
+            "coupon_id": "c3",
+            "discount": 14,
+            "grade": null,
+            "paid": 16,
+            "price": 30,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "u1"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 22,
+            "grade": null,
+            "paid": 48,
+            "price": 70,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "u2"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 45,
+            "price": 45,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "u3"
+          },
+          {
+            "coupon_id": "c1",
+            "discount": 28,
+            "grade": null,
+            "paid": 62,
+            "price": 90,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "u4"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 10,
+            "grade": null,
+            "paid": 10,
+            "price": 20,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "u5"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 31,
+            "grade": null,
+            "paid": 29,
+            "price": 60,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u6"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 10,
+            "price": 10,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "D",
+            "unit_id": "u7"
+          },
+          {
+            "coupon_id": "c4",
+            "discount": 29,
+            "grade": null,
+            "paid": 26,
+            "price": 55,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "E",
+            "unit_id": "u8"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 5,
+            "price": 5,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "F",
+            "unit_id": "u9"
+          }
+        ]
+      }
+    },
+    "two_level_tie_break": {
+      "independent": [
+        150,
+        {
+          "x": [
+            "a"
+          ],
+          "y": [
+            "b"
+          ],
+          "z": [
+            "c"
+          ]
+        }
+      ],
+      "quote": {
+        "allocation": [
+          {
+            "coupon_id": "x",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "y",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "z",
+            "discount": 50,
+            "paid": 50,
+            "price": 100,
+            "sku": "A",
+            "unit_id": "c"
+          }
+        ],
+        "assignments": {
+          "x": [
+            "a"
+          ],
+          "y": [
+            "b"
+          ],
+          "z": [
+            "c"
+          ]
+        },
+        "basket": [
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "b"
+          },
+          {
+            "price": 100,
+            "sku": "A",
+            "unit_id": "c"
+          }
+        ],
+        "coupon_ids": [
+          "x",
+          "y",
+          "z"
+        ],
+        "coupons": [
+          {
+            "D": 50,
+            "coupon_id": "x",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 50,
+            "coupon_id": "y",
+            "requires": {
+              "A": 1
+            }
+          },
+          {
+            "D": 50,
+            "coupon_id": "z",
+            "requires": {
+              "A": 1
+            }
+          }
+        ],
+        "original_total": 300,
+        "request_id": "tie-quote",
+        "snapshot_id": "snap-0d909c9e3e8989dd",
+        "total": 150,
+        "total_discount": 150
+      }
+    },
+    "two_sales": {
+      "S1": {
+        "ok": true,
+        "quote_id": "case-q-before",
+        "quote_sig": "6ec517df5b4ce00620e10099cd172b134629b1dddc99977d6367211c54c2f00d",
+        "refunded_total": 0,
+        "remaining_refundable": [
+          "a",
+          "b",
+          "c"
+        ],
+        "repeated": false,
+        "sale_id": "S1",
+        "snapshot_id": "case-before",
+        "total": 150,
+        "units": [
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "grade": null,
+            "paid": 25,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "AB",
+            "discount": 75,
+            "grade": null,
+            "paid": 25,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": null,
+            "discount": 0,
+            "grade": null,
+            "paid": 100,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ]
+      },
+      "S2": {
+        "ok": true,
+        "quote_id": "case-q-added",
+        "quote_sig": "5d1f98073180248b8a70d0a72ad571cb9fb8262310466b92274ffbffc84de24f",
+        "refunded_total": 0,
+        "remaining_refundable": [
+          "a",
+          "b",
+          "c"
+        ],
+        "repeated": false,
+        "sale_id": "S2",
+        "snapshot_id": "case-added",
+        "total": 120,
+        "units": [
+          {
+            "coupon_id": "A",
+            "discount": 80,
+            "grade": null,
+            "paid": 20,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "A",
+            "unit_id": "a"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "grade": null,
+            "paid": 50,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "B",
+            "unit_id": "b"
+          },
+          {
+            "coupon_id": "BC",
+            "discount": 50,
+            "grade": null,
+            "paid": 50,
+            "price": 100,
+            "return_request_id": null,
+            "returned": 0,
+            "sku": "C",
+            "unit_id": "c"
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "checks": 19,
+    "failed": 0,
+    "passed": 19
+  }
+}

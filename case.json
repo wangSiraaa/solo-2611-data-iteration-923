@@ -1,0 +1,56 @@
+{
+  "basket": [
+    {
+      "unit_id": "a",
+      "sku": "A",
+      "price": 100
+    },
+    {
+      "unit_id": "b",
+      "sku": "B",
+      "price": 100
+    },
+    {
+      "unit_id": "c",
+      "sku": "C",
+      "price": 100
+    }
+  ],
+  "before_coupons": [
+    {
+      "coupon_id": "AB",
+      "D": 150,
+      "requires": {
+        "A": 1,
+        "B": 1
+      }
+    }
+  ],
+  "added_coupons": [
+    {
+      "coupon_id": "A",
+      "D": 80,
+      "requires": {
+        "A": 1
+      }
+    },
+    {
+      "coupon_id": "BC",
+      "D": 100,
+      "requires": {
+        "B": 1,
+        "C": 1
+      }
+    }
+  ],
+  "return_request": {
+    "request_id": "r1",
+    "sale_id": "S1",
+    "unit_ids": [
+      "b"
+    ],
+    "grade": {
+      "b": "RESTOCK"
+    }
+  }
+}
