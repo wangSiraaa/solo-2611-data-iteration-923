@@ -18,7 +18,7 @@ No external dependencies are required — only the standard library and SQLite.
 # results/demo_results.json, including independent cross-checks.
 python3 -m basket_service demo
 
-# Unit / differential / concurrency tests (40 tests).
+# Unit / differential / concurrency / observation tests (68 tests).
 python3 -m basket_service self-check
 # or: python3 -m unittest discover -s tests -v
 
@@ -133,12 +133,83 @@ basket_service/
   db.py            SQLite schema and transaction helpers
   quote_service.py snapshots and quote API
   ledger.py        sales, returns, inventory, audits
+  observations.py  observation-package rebuild, cutoff validity, merchant audits
+  sampling.py      exact balanced two-period selection and rational report
+  scenarios.py     reopenable worked-example/fixture builder and four reports
   planner.py       JSON plan runner
-  demo.py          demo driver + CLI (demo / run-plan / self-check)
-tests/             optimizer, quote-service, ledger, reference tests
-data/              real SQLite databases (created by the demo)
+  demo.py          demo driver + CLI (demo / run-plan / self-check / observations)
+tests/             optimizer, quote-service, ledger, reference, observation,
+                   sampling (incl. brute-force cross-check), scenario tests
+data/              real SQLite databases (created by the demos)
 results/           JSON plans and result records
 ```
+
+## Observation service (two-period comparable price samples)
+
+A second service, built on top of the same reopenable SQLite ledger, turns the
+real sales/refund accounts into comparable two-period price samples.  Run it
+with `python -m basket_service observations` (writes
+`results/observation_reports.json` plus four real databases under `data/`).
+
+### Observation packages
+
+* An **observation package** is the physical units covered by one coupon that
+  was actually consumed in one real transaction; each non-promoted unit forms
+  its own one-unit package.  Packages therefore partition every sale and are
+  rebuilt only from persisted facts (`sale_units.coupon_id`, the frozen
+  per-unit `paid`, and `return_requests.created_at`) — nothing is re-priced and
+  today's price tags are never read.
+* Package numbers (`P001`, …) are stable: they derive from the period sale
+  order and the in-sale coupon/unit ordering, so reopening the database
+  reproduces the same numbers.  Each package also carries a content hash.
+* A package is **complete at a cutoff** only if no member has a return time on
+  or before the cutoff.  One returned member invalidates the whole promotion
+  observation; the surviving units are never split into "single-item" packages
+  that were never transacted at those prices.
+* Two sales with identical baskets/totals but different coupon coverage
+  reconstruct as different observations (different content hashes).
+* `audit_package` / `audit_period` explain, from the raw rows, why any package
+  is `COMPLETE` or `INVALID_RETURNED_MEMBER` at a given cutoff; `rebuild_audit`
+  reconciles every raw ledger unit against the packages.
+
+### Two-period selection (`basket_service.sampling`)
+
+* Each period gets a research-group approved SKU→category mapping whose version
+  is independent of merchant SKU/coupon versions, and a pre-registered quota
+  per category (≤8 categories, each quota an integer in [0,12]).
+* The report selects two sets of complete packages with identical per-category
+  unit counts, inside both periods' quotas, each package used at most once.
+* Exact lexicographic objective: (1) maximise balanced total units; (2) then
+  maximise total actually-promoted units across both periods; (3) then the
+  smallest combined stable package-id list, so price cannot steer selection.
+* Implementation is an exact 0/1 subset DP over fixed-length integer
+  category-count tuples (plain tuple arithmetic, per-round state snapshots so a
+  package is never reused, ascending ids for sorted subsets).  No dominance
+  pruning: identical-vector matching across periods makes it unsafe.
+* If the balanced count is zero the report is an explicit empty sample;
+  otherwise it publishes both period package lists, the package-count
+  difference, and the ratio of integer frozen paid totals as an exact
+  `Fraction`, keeping both the raw integer pair (e.g. `12/8`) and the reduced
+  form (`3/2`).  A zero early total is reported as `UNDEFINED`, never a
+  `ZeroDivisionError`.
+
+### Worked example (integer cents)
+
+Early: set package **P** (A+B, paid 3 and 5) and unpromoted single **Q** (A,
+paid 6).  Late: **R** (A, paid 5) and **S** (B, paid 7).  Categories equal the
+SKUs, targets A/B each 1.
+
+1. No return (or a return after the early cutoff): P matches R+S, ratio **12/8**.
+2. P's B returned before the cutoff: P is invalid as a whole; only Q matches R,
+   ratio **5/6**.
+3. Same frozen transactions, late B re-classed into a non-substitutable
+   zero-quota category (`B-other`): P cannot balance, again Q vs R.
+4. A separate fixture whose five packages have pairwise distinct category
+   count vectors; only combining two packages per side balances, proving the
+   selector never invents standalone split packages.
+
+All four are real reopenable SQLite databases rebuilt through the actual
+snapshot → quote → sale → return flow, with deterministic event timestamps.
 
 ## Verification
 

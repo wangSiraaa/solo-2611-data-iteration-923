@@ -325,7 +325,7 @@
         "successes": [
           {
             "refund_total": 25,
-            "request_id": "race-0"
+            "request_id": "race-1"
           }
         ]
       },
@@ -1415,7 +1415,7 @@
       "successes": [
         {
           "refund_total": 25,
-          "request_id": "race-0"
+          "request_id": "race-1"
         }
       ]
     },

@@ -563,6 +563,13 @@ def main(argv: List[str] | None = None) -> int:
     selfcheck.add_argument("--db", default=str(ROOT / "data" / "selfcheck.db"))
     selfcheck.add_argument("--out", default=str(ROOT / "results" / "self_check.json"))
 
+    observations = sub.add_parser(
+        "observations",
+        help="build the reopenable observation scenarios and the two-period reports",
+    )
+    observations.add_argument("--db-dir", default=str(ROOT / "data"))
+    observations.add_argument("--out", default=str(ROOT / "results" / "observation_reports.json"))
+
     args = parser.parse_args(argv)
     if args.command == "demo":
         os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
@@ -573,6 +580,18 @@ def main(argv: List[str] | None = None) -> int:
     if args.command == "run-plan":
         result = _run_plan_file(args.db, args.plan, args.out)
         print(json.dumps(result, indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "observations":
+        from .scenarios import run_all
+
+        payload = run_all(args.db_dir)
+        _write_json(Path(args.out), payload)
+        summary = {
+            key: payload[key]["report"]["paid_ratio_text"] if "report" in payload[key] else None
+            for key in payload
+            if key.startswith("report_")
+        }
+        print(json.dumps({"out": args.out, "ratios": summary}, indent=2, ensure_ascii=False))
         return 0
     if args.command == "self-check":
         import unittest
